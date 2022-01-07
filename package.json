@@ -44,6 +44,10 @@
 
         "@nuxtjs/vuetify": "^1.12.3",
 
+        "sass": "^1.46.0",
+
+        "sass-loader": "^10.2.0",
+
         "webpack": "^4.46.0"
 
     }
