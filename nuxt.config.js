@@ -3,7 +3,7 @@ export default {
     ssr: false,
     server: {
         port: 8083, // default: 3000
-        host: '192.168.20.199', // default: localhost,
+        host: '185.55.226.247', // default: localhost,
         timing: false
     },
 
