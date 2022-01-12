@@ -1,11 +1,11 @@
 export default {
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
-    // server: {
-    //     port: 8083, // default: 3000
-    //     host: '185.55.226.247', // default: localhost,
-    //     timing: false
-    // },
+    server: {
+        port: 8083, // default: 3000
+        host: '185.55.226.247', // default: localhost,
+        timing: false
+    },
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -24,7 +24,7 @@ export default {
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
 
-
+        
         '~/assets/css/main.css',
     ],
 
