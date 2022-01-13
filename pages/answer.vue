@@ -3,7 +3,17 @@
     <v-main>
       <v-card>
         <v-container fluid>
-          <v-row align="center" justify="center">
+          <v-row>
+            <v-col class="col-4" align="center" justify="center">
+              <v-img height="300" contain :src="img_src"></v-img>
+              <strong> شما ریسک پذیرید</strong>
+            </v-col>
+            <v-col class="col-8">
+              <div class="triangle-up"></div>
+              <div id="container"></div>
+            </v-col>
+          </v-row>
+          <!-- <v-row align="center" justify="center">
             <v-col align="center" justify="center" class="gauge">
               <br />
               <VueSvgGauge
@@ -20,17 +30,14 @@
                 :scale-interval="0.1"
               >
                 <div class="inner-text">
-                  <span>{{ Get_DataStatePercentage }}</span>
+                  <span>{{ Get_DataStatePercentage }} %</span>
                 </div>
               </VueSvgGauge>
               <h2>تبریک ! شما ریسک پذیرید</h2>
             </v-col>
-          </v-row>
-          <div v-for="(item, index) in Get_Data" :key="index"></div>
-        </v-container>
-
-        <v-responsive :aspect-ratio="16 / 9">
-          <v-container fluid>
+          </v-row> -->
+          <v-card class="mt-10">
+            <v-card-title class="justify-center mb-5">  پیشنهاد سبد گردانی ویستا </v-card-title>
             <v-row>
               <v-col
                 cols="6"
@@ -56,8 +63,11 @@
                 <br />
               </v-col>
             </v-row>
-            <div v-for="(item, index) in Get_Data" :key="index"></div>
-          </v-container>
+          </v-card>
+        </v-container>
+
+        <v-responsive :aspect-ratio="16 / 9">
+          <v-container fluid> </v-container>
         </v-responsive>
       </v-card>
     </v-main>
@@ -69,6 +79,7 @@ export default {
   name: "answer",
   data() {
     return {
+      img_src: "",
       rewards: [],
 
       percentage: (100 / 4) * 4 + " %",
@@ -82,8 +93,22 @@ export default {
       return this.$store.getters.Get_reward.state;
     },
     Get_DataStatePercentage() {
-      return (100 / 4) * this.$store.getters.Get_reward.state + " %";
+      return (100 / 4) * this.$store.getters.Get_reward.state;
     },
+  },
+  mounted() {
+    var resault = this.Get_DataStatePercentage;
+    if (resault == 25) {
+      this.img_src = "img/25.png";
+    } else if (resault == 50) {
+      this.img_src = "img/50.png";
+    } else if (resault == 75) {
+      this.img_src = "img/75.png";
+    } else if (resault == 100) {
+      this.img_src = "img/100.png";
+    } else {
+      this.img_src = "img/25.png";
+    }
   },
 };
 </script>

@@ -63,7 +63,7 @@
                 e1 = 1;
               "
             >
-              مجدد
+              بازگشت 
             </v-btn>
             <v-btn
            
@@ -143,6 +143,7 @@ export default {
     sumAllOfRadio() {
       this.sumOfRadio = this.radioGroup + this.sumOfRadio;
       console.log(this.sumOfRadio);
+      this.radioGroup=0
     },
     resetSumOfRadio() {
       this.sumOfRadio = 0;
