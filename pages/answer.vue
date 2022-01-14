@@ -7,6 +7,9 @@
             <v-col class="col-4 mt-10" align="center" justify="center">
               <v-img class="mt-10" height="300" contain :src="img_src"></v-img>
               <strong> شما ریسک پذیرید</strong>
+              <p>شما خود را سرمایه‌گذار محافظه کار معرفی کرده‌اید.
+
+</p>
             </v-col>
             <v-col class="col-8 mt-5">
               <div >
