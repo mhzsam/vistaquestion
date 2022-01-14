@@ -1,81 +1,94 @@
 <template>
-  <div>
-    <v-app id="inspire">
-      <v-main>
-        <v-card>
-          <v-responsive :aspect-ratio="16 / 9">
-          <br>
-          <v-row>
+<div>
+<div class="triangle-up hovercolor"><span class="line1"></span></div>
+<div  class="trapezoid1 hovercolor"><span class="line2"></span></div>
+<div  class="trapezoid2 hovercolor"><span class="line3"></span></div>
+<div  class="trapezoid3 hovercolor"><span class="line4"></span></div>
 
-            <v-col class="col-4 ">
-              <v-img
-              
-                height="300"
-                contain
-                src="img/25.png"
-              ></v-img>
-            </v-col>
-            <v-col class="col-8"> 
-                <div class="triangle-up "></div>
-                <div id="container"></div>
-            </v-col>
-          </v-row>
-          </v-responsive>
-        </v-card>
-      </v-main>
-    </v-app>
-  </div>
+</div>
 </template>
 
 <script>
-anychart.onDocumentReady(function () {
-
-    $('#container').append('<div class="table">' +
-        '<table id="table" style="display:none">' +
-        '<tr>' +
-        '    <td>20</td>' +
-        '</tr>' +
-        '<tr>' +
-        '    <td>7</td>' +
-        '</tr>' +
-        '<tr>' +
-        '    <td>10</td>' +
-        '</tr>' +
-        '<tr>' +
-        '    <td>14</td>' +
-        '</tr>' +
-        '</table>' +
-        '</div>');
-
-    // To work with the data you need to connect data adapter file from https://cdn.anychart.com/
-
-    var tableData = anychart.data.parseHtmlTable('#table');
-
-    var chart = anychart.pyramid();
-
-    // Set data.
-    chart.data(tableData);
-
-    chart.title('Set chart data as a table data');
-    chart.container('container');
-    chart.draw();
-});
 export default {
   name: "test",
 };
 </script>
 <style scoped>
+.line1{
+  position: absolute;
+  top:50px;
+
+  background-color: brown;
+  height: 5px;
+  width: 250px;
+  z-index: -9999;
+}
+.line2{
+  position: absolute;
+  top:50px;
+
+  background-color: brown;
+  height: 5px;
+  width: 300px;
+  z-index: -9999;
+}
+.line3{
+  position: absolute;
+  top:50px;
+
+  background-color: brown;
+  height: 5px;
+  width: 350px;
+  z-index: -9999;
+}
+.line4{
+  position: absolute;
+  top:50px;
+
+  background-color: brown;
+  height: 5px;
+  width: 400px;
+  z-index: -9999;
+}
 .triangle-up {
+  position: relative;
+  margin: auto;
 	width: 0;
 	height: 0;
-	border-left: 25px solid transparent;
-	border-right: 25px solid transparent;
-	border-bottom: 50px solid #555;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid rgb(11, 224, 107);
 }
-html, body, #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+
+.trapezoid1{
+  position: relative;
+  margin: auto;
+  	width: 200px;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid rgb(11, 224, 107);
+}
+.trapezoid2{
+  position: relative;
+  margin: auto;
+  	width: 300px;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid rgb(11, 224, 107);
+}
+.trapezoid3{
+  position: relative;
+  margin: auto;
+  	width: 400px;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid rgb(11, 224, 107);
+}
+.hovercolor:hover{
+  border-bottom-color: aqua;
+ 
 }
 </style>
