@@ -21,7 +21,7 @@
               height="auto"
               padding="20px"
             >
-              <v-container class="px-10" fluid>
+              <v-container class="pt-10 pb-0" fluid>
                 <v-radio-group v-model="radioGroup">
                   <template #label>
                     <div>
@@ -38,41 +38,46 @@
                   ></v-radio>
                 </v-radio-group>
               </v-container>
-            </v-card>
 
-            <v-btn
-              v-if="index !== Get_Data.length - 1"
-              class="btn-bold right"
-              right
-              color="primary"
-              @click="
-                sumAllOfRadio();
-                e1 = index + 2;
-              "
-            >
-              بعدی
-            </v-btn>
-            <v-btn
-              v-if="index !== 0"
-              class="btn-bold align "
-              color="error"
-              
-              outlined
-              @click="
-                resetSumOfRadio();
-                e1 = 1;
-              "
-            >
-              بازگشت 
-            </v-btn>
-            <v-btn
+              <v-container fluid px-10  >
+                <v-row class="d-flex justify-space-between mb-6">
+                  <div > 
+                    <v-btn
+                      v-if="index !== Get_Data.length - 1"
+                      class="btn-bold"
+                      width="150"
+                      color="primary"
+                      @click="sumAllOfRadio(index)"
+                    >
+                      <!-- e1 = index + 2; -->
+                      بعدی
+                    </v-btn>
+                    <v-btn
+                      v-if="index == Get_Data.length - 1"
+                      color="primary"
+                      @click="sumAllOfRadioAnd()"
+                      width="150"
+                    >
+                      ارسال
+                    </v-btn>
+                  </div>
+                  <div>
+                    <v-btn
+                      v-if="index !== 0"
+                      class="btn-bold"
+                      color="error"
+                      outlined
+                      @click="resetSumOfRadio(index)"
+                      width="150"
+                    >
+                      بازگشت
+                    </v-btn>
+                  </div>
+                </v-row>
+              </v-container>
+            </v-card>
+            
            
-              v-if="index == Get_Data.length - 1"
-              color="primary"
-              @click="sumAllOfRadioAnd()"
-            >
-              ارسال
-            </v-btn>
           </v-stepper-content>
 
           <!-- 
@@ -104,8 +109,25 @@
           </v-stepper-content> -->
         </v-stepper-items>
         <div class="text_box">
-      <h3>با ما، سرمایه‌گذار شو!</h3>
-      <p> از طریق این اپلیکیشن، شما می‌توانید در انواع صندوق‌های سکه طلا، درآمد ثابت با سود روزشمار و سهامی ثبت نام کرده و سرمایه‌گذاری کنید. کیان دیجیتال متعلق به گروه مالی کیان و محصول مشترک شرکت مشاور سرمایه‌گذاری پرتو آفتاب کیان، کارگزاری توسعه معاملات کیان و شرکت نوآوران پذیرش پیشرو کیان است. مشاور سرمایه‌گذاری پرتو آفتاب کیان جز نهادهای مالی ثبت شده در سازمان بورس با شماره ثبت ۱۱۵۴۳ و شماره مجوز ۱۲۱/۸۵۲۸۸ برای مشاوره سرمایه‌گذاری است. همچنین کارگزاری توسعه معاملات کیان ثبت شده به شماره ۱۰۶۷۳ نزد سازمان بورس و اوراق بهادار و دارای شماره مجوز ۱۲۱/۹۹۰۰۳ برای انجام معاملات برخط است. شرکت نوآوران پذیرش پیشرو کیان نیز دارای مجوز پرداخت‌یاری از سوی شرکت شاپرک بانک مرکزی است. صندوق‌های سرمایه‌گذاری کیان دیجیتال تحت مدیریت مشاور سرمایه‌گذاری پرتو آفتاب کیان و دارای مجوز از سازمان بورس و اوراق بهادار بوده و تحت نظارت و پایش مستمر این سازمان فعالیت می‌کنند. در سایت نهادهای مالی ثبت شده در سازمان بورس این مجوزها را می‌توانید مشاهده کنید (cfi.codal.ir). کیان دیجیتال دارای تائیدیه از مرکز نظارت بر امنیت اطلاعات بازار سرمایه به شماره ۱۲۱/۱۳۵۴۹۶ است.</p>
+          <h3>با ما، سرمایه‌گذار شو!</h3>
+          <p>
+            از طریق این اپلیکیشن، شما می‌توانید در انواع صندوق‌های سکه طلا،
+            درآمد ثابت با سود روزشمار و سهامی ثبت نام کرده و سرمایه‌گذاری کنید.
+            کیان دیجیتال متعلق به گروه مالی کیان و محصول مشترک شرکت مشاور
+            سرمایه‌گذاری پرتو آفتاب کیان، کارگزاری توسعه معاملات کیان و شرکت
+            نوآوران پذیرش پیشرو کیان است. مشاور سرمایه‌گذاری پرتو آفتاب کیان جز
+            نهادهای مالی ثبت شده در سازمان بورس با شماره ثبت ۱۱۵۴۳ و شماره مجوز
+            ۱۲۱/۸۵۲۸۸ برای مشاوره سرمایه‌گذاری است. همچنین کارگزاری توسعه
+            معاملات کیان ثبت شده به شماره ۱۰۶۷۳ نزد سازمان بورس و اوراق بهادار و
+            دارای شماره مجوز ۱۲۱/۹۹۰۰۳ برای انجام معاملات برخط است. شرکت نوآوران
+            پذیرش پیشرو کیان نیز دارای مجوز پرداخت‌یاری از سوی شرکت شاپرک بانک
+            مرکزی است. صندوق‌های سرمایه‌گذاری کیان دیجیتال تحت مدیریت مشاور
+            سرمایه‌گذاری پرتو آفتاب کیان و دارای مجوز از سازمان بورس و اوراق
+            بهادار بوده و تحت نظارت و پایش مستمر این سازمان فعالیت می‌کنند. در
+            سایت نهادهای مالی ثبت شده در سازمان بورس این مجوزها را می‌توانید
+            مشاهده کنید (cfi.codal.ir). کیان دیجیتال دارای تائیدیه از مرکز نظارت
+            بر امنیت اطلاعات بازار سرمایه به شماره ۱۲۱/۱۳۵۴۹۶ است.
+          </p>
         </div>
       </v-stepper>
     </v-app>
@@ -124,6 +146,7 @@ export default {
       e1: 1,
       radioGroup: 0,
       sumOfRadio: 0,
+      lastRadioValue: [],
       reqest: false,
       contents: [],
     };
@@ -144,26 +167,38 @@ export default {
     },
   },
   methods: {
-    sumAllOfRadio() {
-      this.sumOfRadio = this.radioGroup + this.sumOfRadio;
-      console.log(this.sumOfRadio);
-      this.radioGroup=0
+    sumAllOfRadio(index) {
+      if (this.radioGroup != 0) {
+        this.lastRadioValue.push(this.radioGroup);
+        // console.log(" this.lastRadioValue", this.lastRadioValue);
+        this.sumOfRadio = this.radioGroup + this.sumOfRadio;
+        console.log("sum is", this.sumOfRadio);
+        this.radioGroup = 0;
+        this.e1 = index + 2;
+      } else {
+        alert("لطفا یک مقدار را انتخاب کنید");
+      }
     },
-    resetSumOfRadio() {
-      this.sumOfRadio = 0;
+    resetSumOfRadio(index) {
+      var last = this.lastRadioValue.at(-1);
+      this.lastRadioValue.pop();
+      // console.log("lastRadioValue",this.lastRadioValue)
+      // console.log("last",last)
+      this.sumOfRadio = this.sumOfRadio - last;
+      var setp = index + 1;
+      this.e1 = setp - 1;
       console.log("sum is", this.sumOfRadio);
     },
     sumAllOfRadioAnd() {
       this.sumAllOfRadio();
       var param = this.sumOfRadio;
-      console.log("param", param);
+      // console.log("param", param);
       this.$store.dispatch("FetchReward", param);
     },
   },
 };
 </script>
 <style scoped >
-
 .btn-bold {
   font-weight: bold !important;
 }
@@ -172,10 +207,8 @@ export default {
 }
 .text_box {
   padding: 5px 50px;
-  
 }
 .text_box p {
   text-align: justify !important;
 }
-
 </style>
