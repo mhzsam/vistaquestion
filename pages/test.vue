@@ -1,94 +1,102 @@
 <template>
-<div>
-<div class="triangle-up hovercolor"><span class="line1"></span></div>
-<div  class="trapezoid1 hovercolor"><span class="line2"></span></div>
-<div  class="trapezoid2 hovercolor"><span class="line3"></span></div>
-<div  class="trapezoid3 hovercolor"><span class="line4"></span></div>
+  <v-card
+    max-width="475"
+    class="mx-auto"
+  >
+    
 
-</div>
+
+    <v-list
+      
+      two-line
+      flat
+    >
+      
+      <v-list-item-group
+        v-model="settings"
+              >
+        <v-list-item>
+          <template v-slot:default="{ active, }">
+            <v-list-item-action>
+              <v-checkbox
+                :input-value="active"
+                color="primary"
+              ></v-checkbox>
+            </v-list-item-action>
+
+            <v-list-item-content>
+              <v-list-item-title>Notifications</v-list-item-title>
+              <v-list-item-subtitle>Allow notifications</v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+
+        <v-list-item>
+          <template v-slot:default="{ active }">
+            <v-list-item-action>
+              <v-checkbox
+                :input-value="active"
+                color="primary"
+              ></v-checkbox>
+              
+            </v-list-item-action>
+
+            <v-list-item-content>
+              <v-list-item-title>Sound</v-list-item-title>
+              <v-list-item-subtitle>Hangouts message</v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+
+        <v-list-item>
+          <template v-slot:default="{ active }">
+            <v-list-item-action>
+              <v-checkbox
+              append-icon:
+                :input-value="active"
+                color="primary"
+              ></v-checkbox>
+            </v-list-item-action>
+
+            <v-list-item-content>
+              <v-list-item-title>Video sounds</v-list-item-title>
+              <v-list-item-subtitle>Hangouts video call</v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+
+        <v-list-item>
+          <template v-slot:default="{ active }">
+            <v-list-item-action>
+              <v-checkbox
+                :input-value="active"
+                color="primary"
+              ></v-checkbox>
+            </v-list-item-action>
+
+            <v-list-item-content>
+              <v-list-item-title>Invites</v-list-item-title>
+              <v-list-item-subtitle>Notify when receiving invites</v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+  </v-card>
 </template>
 
 <script>
 export default {
   name: "test",
+  data: () => ({
+    settings: [],
+      selectedItem: 1,
+      items: [
+        { text: 'Real-Time', icon: 'mdi-clock' },
+        { text: 'Audience', icon: 'mdi-account' },
+        { text: 'Conversions', icon: 'mdi-flag' },
+      ],})
+      
 };
 </script>
-<style scoped>
-.line1{
-  position: absolute;
-  top:50px;
 
-  background-color: brown;
-  height: 5px;
-  width: 250px;
-  z-index: -9999;
-}
-.line2{
-  position: absolute;
-  top:50px;
-
-  background-color: brown;
-  height: 5px;
-  width: 300px;
-  z-index: -9999;
-}
-.line3{
-  position: absolute;
-  top:50px;
-
-  background-color: brown;
-  height: 5px;
-  width: 350px;
-  z-index: -9999;
-}
-.line4{
-  position: absolute;
-  top:50px;
-
-  background-color: brown;
-  height: 5px;
-  width: 400px;
-  z-index: -9999;
-}
-.triangle-up {
-  position: relative;
-  margin: auto;
-	width: 0;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-bottom: 100px solid rgb(11, 224, 107);
-}
-
-.trapezoid1{
-  position: relative;
-  margin: auto;
-  	width: 200px;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-bottom: 100px solid rgb(11, 224, 107);
-}
-.trapezoid2{
-  position: relative;
-  margin: auto;
-  	width: 300px;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-bottom: 100px solid rgb(11, 224, 107);
-}
-.trapezoid3{
-  position: relative;
-  margin: auto;
-  	width: 400px;
-	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-bottom: 100px solid rgb(11, 224, 107);
-}
-.hovercolor:hover{
-  border-bottom-color: aqua;
- 
-}
-</style>
