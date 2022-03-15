@@ -3,7 +3,7 @@
     <v-app id="inspire">
       <v-stepper v-model="e1">
         <v-stepper-items v-for="(item, index) in Get_Data" :key="index">
-          <v-stepper-content :step="index + 1">
+          <v-stepper-content class="pb-0 mb-n8" :step="index + 1">
             <v-card
               class="pt-0 mt-0 mx-3"
               color="white "
@@ -80,6 +80,9 @@
                       v-for="(item, index) in Get_Data"
                       :key="index"
                       class="shape-botton"
+                      :id="index + 1"
+                      :class="{shapebotton:(index+1)>=e1,shapeactive:(index+1)==e1,shapeback:(index+1)<e1}"
+                      
                     ></div>
                   </v-row>
                   <div>
@@ -98,6 +101,7 @@
                       color="#B29353"
                       @click="sumAllOfRadioAnd()"
                       width="150"
+                      class="btn-next"
                     >
                       ارسال
                     </v-btn>
@@ -106,53 +110,17 @@
               </v-container>
             </v-card>
           </v-stepper-content>
-
-          <!-- 
-          <v-stepper-content step="2">
-            <v-card class="mb-12" color="grey lighten-4" height="200px"
-              ><v-container class="px-10" fluid>
-                <v-radio-group v-model="radioGroup">
-                  <template #label>
-                    <div>
-                      <h2>{{ question2 }}</h2>
-                      <br />
-                    </div>
-                  </template>
-                  <v-radio
-                    v-for="n in 3"
-                    :key="n"
-                    :label="`Radio ${n}`"
-                    :value="n"
-                  ></v-radio>
-                </v-radio-group>
-              </v-container>
-            </v-card>
-
-            <v-btn class="btn-bold" color="primary" @click="e1 = 1">
-              ارسال
-            </v-btn>
-
-            <v-btn class="btn-bold" text @click="e1 = 1"> قبلی </v-btn>
-          </v-stepper-content> -->
         </v-stepper-items>
+        <v-row class="d-flex justify-center mt-n1 pb-5 pt-0">
+          <div class="step_counter" style="color: #b29353">{{ e1 }}</div>
+          <div class="step_counter">|</div>
+          <div class="step_counter" style="color: #173245">{{ allPage }}</div>
+        </v-row>
       </v-stepper>
     </v-app>
     <!-- <div v-for="item in contents" :key="index">
     {{item.}}
     </div> -->
-
-    <v-list>
-      <v-list-item-group v-model="selectedItem" color="primary">
-        <v-list-item v-for="(item, i) in items" :key="i">
-          <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item-content>
-          <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
   </div>
 </template>
 
@@ -162,6 +130,11 @@ export default {
 
   data() {
     return {
+      isActive: false,
+      isActive2: false,
+
+      correctPage: 0,
+      allPage: 0,
       icon: "mdi-checkbox-blank-circle-outline",
       e1: 1,
       radioGroup: 0,
@@ -169,13 +142,6 @@ export default {
       lastRadioValue: [],
       reqest: false,
       contents: [],
-
-      selectedItem: 1,
-      items: [
-        { text: "Real-Time", icon: "mdi-clock" },
-        { text: "Audience", icon: "mdi-account" },
-        { text: "Conversions", icon: "mdi-flag" },
-      ],
     };
   },
   // async fetch() {
@@ -192,6 +158,9 @@ export default {
     Get_Data() {
       return this.$store.getters.Get_Data.data;
     },
+  },
+  mounted() {
+    this.allPage = this.Get_Data.length;
   },
   methods: {
     sumAllOfRadio(index) {
@@ -216,9 +185,8 @@ export default {
         var setp = index + 1;
         this.e1 = setp - 1;
         console.log("sum is", this.sumOfRadio);
-      }
-      else{
-        alert("شما در مرحله اول هستید ")
+      } else {
+        alert("شما در مرحله اول هستید ");
       }
     },
     sumAllOfRadioAnd() {
@@ -268,7 +236,7 @@ export default {
   color: white !important;
   border-radius: 50px !important;
 }
-.shape-botton {
+.shapebotton {
   background-color: #eeeeee;
   height: 10px;
   width: 30px;
@@ -277,5 +245,29 @@ export default {
   margin-left: 3px;
   margin-right: 3px;
   margin-top: 12px;
+}
+.shapeactive{
+background-color: #b19355;
+  height: 10px;
+  width: 30px;
+  border: 1px #b19355 solid;
+  border-radius: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 12px;
+}
+.shapeback{
+background-color: #173245;
+  height: 10px;
+  width: 30px;
+  border: 1px #173245 solid;
+  border-radius: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 12px;
+}
+.step_counter {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 </style>
