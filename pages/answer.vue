@@ -1,80 +1,32 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <v-main>
       <v-card>
         <v-container fluid>
           <v-row>
-            <v-col class="col-4 mt-10" align="center" justify="center">
+            <v-col class="col-4 mt-10" align="center" justify="center"> </v-col>
+
+            <v-col class="col-4 mt-10">
+              <h2 style="color: #b19355" align="center" justify="center">
+                نتیجه ارزیابی ریسک
+              </h2>
               <v-img class="mt-10" height="300" contain :src="img_src"></v-img>
-              <strong> شما ریسک پذیرید</strong>
-              <p>شما خود را سرمایه‌گذار محافظه کار معرفی کرده‌اید.
-
-</p>
-
-            </v-col>
-            <v-col class="col-8 mt-5">
-              <div >
-                <div class="triangle-up hover_shape">
-                 <span class="textline1"
-                      ><ul>
-                        <ol
-                          v-for="(item, index) in offers1.reward"
-                          :key="index"
-                        >
-                          {{
-                            item.title
-                          }}
-                        </ol>
-                      </ul></span
-                    >
-                </div>
-                <div class="trapezoid1 hover_shape">
-                  
-                    <span class="textline2"
-                      ><ul>
-                        <ol
-                          v-for="(item, index) in offers2.reward"
-                          :key="index"
-                        >
-                          {{
-                            item.title
-                          }}
-                        </ol>
-                      </ul></span
-                    >
-          
-                </div>
-                <div class="trapezoid2 hover_shape">
-                 <span class="textline3"
-                      ><ul>
-                        <ol
-                          v-for="(item, index) in offers3.reward"
-                          :key="index"
-                        >
-                          {{
-                            item.title
-                          }}
-                        </ol>
-                      </ul></span
-                    >
-                </div>
-                <div class="trapezoid3 hover_shape">
-                <span class="textline4"
-                      ><ul>
-                        <ol
-                          v-for="(item, index) in offers4.reward"
-                          :key="index"
-                        >
-                          {{
-                            item.title
-                          }}
-                        </ol>
-                      </ul></span
-                    >
-                </div>
+              <br />
+              <div class="mr-5">
+                <h2>
+                  شما <span style="color: #b19355">نسبتا ریسک پذیر</span> هستید
+                </h2>
+                <br />
+                <span style="font-size: 1.2em">
+                  سهام رشدی (دارای پتانسیل سودآوری در آینده و فاقد سود تقسیمی)
+                </span>
+                <br />
+                <span style="font-size: 1.2em"
+                  >سهام ارزشی ( قیمت معاملاتی پایین تر از ارزش ذاتی)</span
+                >
               </div>
-              <div id="container"></div>
             </v-col>
+            <v-col class="col-4 mt-10" align="center" justify="center"> </v-col>
           </v-row>
           <!-- <v-row align="center" justify="center">
             <v-col align="center" justify="center" class="gauge">
@@ -100,10 +52,16 @@
             </v-col>
           </v-row> -->
           <v-card class="mt-10">
-            <v-card-title class="justify-center mb-5">
-              - پیشنهاد سبد گردانی ویستا -
+            <v-card-title
+              style="color: #b19355; font-weight: 550"
+              class="justify-center mb-5 text-h4 mb-12 pt-12"
+            >
+              پیشنهاد ویستا
             </v-card-title>
-            <v-row>
+            <v-row
+              class="d-flex justify-center"
+              style="margin-left: 18%; margin-right: 18%"
+            >
               <v-col
                 cols="6"
                 sm="4"
@@ -111,22 +69,41 @@
                 :key="index"
               >
                 <v-img
-                  height="200px"
+                 class="mx-12"
                   :src="'data:image/jpeg;base64,' + item.reward.image"
                 ></v-img>
+                <!-- <v-img class="mx-12" src="/img/1.png"></v-img> -->
                 <v-card-title class="justify-center">{{
                   item.reward.title
                 }}</v-card-title>
-
-                <v-btn
+                <v-card-text
+                  style="font-size: 1.1em; line-height: 1.6"
+                  class="text-justify"
+                >
+                  تمامی تلاش مدیریت، کارشناسان و کارکنان سبدگردانـی ویستا معطوف
+                  به ارایه خدمات به مشتریان براساس سه اصل اعتماد، اطمینان و حرفه
+                  ای گری است
+                </v-card-text>
+                <!-- <v-btn
                   block
                   elevation="2"
                   :href="'https://' + item.reward.link"
                 >
                   {{ item.reward.link }}</v-btn
-                >
+                > -->
                 <br />
               </v-col>
+            </v-row>
+            <v-row>
+              <v-btn
+                large
+                style="color: white"
+                color="#B29353 "
+                elevation="2"
+                class="btn pt-0 mt-n10"
+                >شروع سرمایه گذاری
+              </v-btn>
+              <br />
             </v-row>
           </v-card>
         </v-container>
@@ -135,7 +112,6 @@
           <v-container fluid> </v-container>
         </v-responsive>
       </v-card>
-    
     </v-main>
   </v-app>
 </template>
@@ -186,136 +162,29 @@ export default {
   },
   mounted() {
     var resault = this.Get_DataStatePercentage;
-    if (resault == 25) {
-      this.img_src = "img/25.png";
-    } else if (resault == 50) {
-      this.img_src = "img/50.png";
-    } else if (resault == 75) {
-      this.img_src = "img/75.png";
-    } else if (resault == 100) {
+    if (resault <= 25) {
+      this.img_src = "img/20.png";
+    } else if (resault <= 45) {
+      this.img_src = "img/40.png";
+    } else if (resault <= 65) {
+      this.img_src = "img/60.png";
+    } else if (resault <= 85) {
+      this.img_src = "img/80.png";
+    } else if (resault <= 100) {
       this.img_src = "img/100.png";
     } else {
-      this.img_src = "img/25.png";
+      this.img_src = "img/20.png";
     }
     this.Get_DataForOffer();
   },
 };
 </script>
 <style scoped>
-.gauge {
-  width: 25% !important;
-}
-.inner-text {
-  padding-top: 40%;
-  color: #87daad;
-}
-.textline1 {
-  position: absolute;
-  right: -18px;
-  top: 45px;
-  font-size: 13px;
-  text-align: center !important;
-  font-weight: bold;
-   color: rgb(255, 255, 255);
-}
-.textline2 {
-  position: absolute;
- right: 30px;
-  top: 1px;
-  font-size: 13px;
-  text-align: center !important;
-  font-weight: bold;
-   color: white;
-}
-.textline3 {
-  position: absolute;
- right: 85px;
-  top: 40px;
-  font-size: 13px;
-  text-align: center !important;
-  font-weight: bold;
-   color: white;
-}
-.textline4 {
-  position: absolute;
- right: 135px;
-  top: 40px;
-  font-size: 13px;
-  text-align: center !important;
-  font-weight: bold;
-  color: white;
-}
-/* 
-.line1 {
-  position: absolute;
-  top: 50px;
-left: 0px;
-  background-color: rgb(172, 171, 171);
-  height: 5px;
-  width: 200px;
-}
-.line2 {
-  position: absolute;
-  top: 50px;
-left: 0px;
-  background-color: rgb(172, 171, 171);
-  height: 5px;
-  width: 250px;
-}
-.line3 {
-  position: absolute;
-  top: 50px;
-left: 0px;
-  background-color: rgb(172, 171, 171);
-  height: 5px;
-  width: 300px;
-}
-.line4 {
-  position: absolute;
-  top: 50px;
-left: 0px;
-  background-color: rgb(172, 171, 171);
-  height: 5px;
-  width: 350px;
-} */
-.triangle-up {
-  position: relative;
-  margin: auto;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #05e23e;
-}
-
-.trapezoid1 {
-  position: relative;
-  margin: auto;
-  width: 200px;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #fdbb0e;
-}
-.trapezoid2 {
-  position: relative;
-  margin: auto;
-  width: 300px;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #9852a1;
-}
-.trapezoid3 {
-  position: relative;
-  margin: auto;
-  width: 400px;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid #00a2e4;
-}
-.hover_shape:hover{
-border-bottom-color: tomato !important;
+.btn {
+  display: inline-block;
+  margin: 20px auto;
+  font-size: 1.3em;
+  color: white !important;
+  border-radius: 50px !important;
 }
 </style>

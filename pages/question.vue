@@ -103,7 +103,7 @@
                       width="150"
                       class="btn-next"
                     >
-                      ارسال
+                      ثبت
                     </v-btn>
                   </div>
                 </v-row>
