@@ -138,7 +138,7 @@ export default {
       return this.$store.getters.Get_reward.state;
     },
     Get_DataStatePercentage() {
-      return (100 / 4) * this.$store.getters.Get_reward.state;
+      return  this.$store.getters.Get_reward.state;
     },
   },
   methods: {
@@ -162,15 +162,15 @@ export default {
   },
   mounted() {
     var resault = this.Get_DataStatePercentage;
-    if (resault <= 25) {
+    if (resault === 1) {
       this.img_src = "img/20.png";
-    } else if (resault <= 45) {
+    } else if (resault === 2) {
       this.img_src = "img/40.png";
-    } else if (resault <= 65) {
+    } else if (resault === 3) {
       this.img_src = "img/60.png";
-    } else if (resault <= 85) {
+    } else if (resault === 4) {
       this.img_src = "img/80.png";
-    } else if (resault <= 100) {
+    } else if (resault === 5) {
       this.img_src = "img/100.png";
     } else {
       this.img_src = "img/20.png";
