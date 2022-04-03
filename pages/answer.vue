@@ -178,9 +178,6 @@ export default {
 };
 </script>
 <style scoped>
-.app-setup{
- 
-}
 .btn {
   display: inline-block;
   margin: 20px auto;
