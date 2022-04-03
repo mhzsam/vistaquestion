@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app-setup">
     <v-main>
       <v-card>
         <v-container fluid>
@@ -108,9 +108,7 @@
           </v-card>
         </v-container>
 
-        <v-responsive :aspect-ratio="16 / 9">
-          <v-container fluid> </v-container>
-        </v-responsive>
+       
       </v-card>
     </v-main>
   </v-app>
@@ -180,6 +178,9 @@ export default {
 };
 </script>
 <style scoped>
+.app-setup{
+ 
+}
 .btn {
   display: inline-block;
   margin: 20px auto;

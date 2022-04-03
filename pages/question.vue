@@ -1,7 +1,10 @@
 <template>
   <div>
-    <v-app id="inspire">
-      <v-stepper v-model="e1">
+    <v-app  class="app-setup" >
+      <div >
+
+      
+      <v-stepper class="padding" v-model="e1">
         <v-stepper-items v-for="(item, index) in Get_Data" :key="index">
           <v-stepper-content class="pb-0 mb-n8" :step="index + 1">
             <v-card
@@ -117,6 +120,8 @@
           <div class="step_counter" style="color: #173245">{{ allPage }}</div>
         </v-row>
       </v-stepper>
+      </div>
+    
     </v-app>
     <!-- <div v-for="item in contents" :key="index">
     {{item.}}
@@ -199,6 +204,15 @@ export default {
 };
 </script>
 <style scoped>
+.app-setup{
+ height: 420px;
+
+
+
+}
+.padding{
+  padding: 0 10%
+}
 .btn-bold {
   font-weight: bold !important;
 }
