@@ -211,7 +211,7 @@ export default {
 
 }
 .padding{
-  padding: 0 10%
+  padding: 0 20%
 }
 .btn-bold {
   font-weight: bold !important;
